@@ -1,20 +1,25 @@
 FROM python:3.10
 
-# Defina o diretório de trabalho
+# Install OpenJDK
+RUN apt-get update && apt-get install -y openjdk-17-jdk
+
+# Set the JAVA_HOME environment variable
+ENV JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64
+
+# Set the working directory
 WORKDIR /app
 
-# Copie o arquivo requirements.txt para o contêiner
+# Copy the requirements.txt file to the container
 COPY requirements.txt .
 
-# Instale as dependências do requirements.txt
+# Install dependencies from requirements.txt
 RUN pip install -r requirements.txt
 
-# Copie o restante dos arquivos da aplicação
+# Copy the remaining application files
 COPY . .
 
-# Exponha a porta 5000
-EXPOSE 5000
+# Expose port 8889
+EXPOSE 8889
 
-# Comando padrão para executar o aplicativo
+# Default command to run the application
 CMD ["tail", "-f", "/dev/null"]
-

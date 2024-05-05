@@ -4,7 +4,7 @@ services:
   python-container:
     build: .
     ports:
-      - "5000:5000"
+      - "8889:8889"
     volumes:
       - ./app:/app
       - ./requirements.txt:/requirements.txt
