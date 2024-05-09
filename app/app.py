@@ -1,4 +1,5 @@
 from preprocessing.etl import ETLProcessor
+from modelling.model import LogisticRegressionTrainer
 
 file_id1 = "1s5WHBz59d4v8I96CSRlqR9DWTsSU6HC_"
 file_id2 = "1bJ8Nguso8mQPeAE4b_tUg6N_fwH8VmnN"
@@ -21,3 +22,7 @@ model_data.write.csv('data/model_data.csv', header=True, mode='overwrite')
 # Create pipeline and transform data
 piped_data = etl_processor.create_pipeline(model_data)
 
+# Uso da classe LogisticRegressionTrainer
+trainer = LogisticRegressionTrainer(piped_data)
+trainer.train()
+trainer.evaluate()
