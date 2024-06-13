@@ -4,3 +4,4 @@ pyspark
 matplotlib
 jupyter
 basemap
+fastapi

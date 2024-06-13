@@ -39,3 +39,12 @@ class LogisticRegressionTrainer:
         # Evaluate the predictions
         roc_auc = self.evaluator.evaluate(test_results)
         print("Area Under ROC:", roc_auc)
+        
+    def save_model(self, path):
+        # Verifica se o melhor modelo existe
+        if hasattr(self, 'best_lr'):
+            # Salva o modelo em um arquivo
+            self.best_lr.save(path)
+            print("Model saved successfully.")
+        else:
+            print("No model has been trained yet.")

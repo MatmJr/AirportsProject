@@ -1,3 +1,5 @@
 .github
 .devcontainer
 data
+__pycache__/
+app/Notebooks/ExploratoryAnalysis.ipynb
