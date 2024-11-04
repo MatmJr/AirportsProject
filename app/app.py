@@ -9,7 +9,6 @@ loaded_model = PipelineModel.load(model_path)
 
 @app.post("/predict")
 async def predict(data: dict):
-    # Suponha que 'data' seja um dicionário contendo os dados a serem previstos
     # Realizar pré-processamento, se necessário, nos dados recebidos
     # Fazer a previsão usando o modelo carregado
     prediction = loaded_model.transform(data)
